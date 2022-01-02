@@ -1,5 +1,4 @@
 from ctypes import sizeof
-from genericpath import isfile
 import hashlib
 import os, struct
 from Crypto import Random
@@ -50,7 +49,6 @@ def decrypt_aes(key, iv, in_filename):
 
 if __name__ == '__main__' : 
     in_filename = input("Enter the input file name: ")
-    #in_filename = "AOPC_Presentation_Tcholakian.pdf"
     iv = b'TestMeInitVector'
     filesize = os.path.getsize(in_filename)
         
