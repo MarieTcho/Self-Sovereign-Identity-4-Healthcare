@@ -2,6 +2,7 @@ import os
 import hash
 import encryption
 import ipfs
+import ldap
 
 if __name__ == "__main__":
     in_filename = input("Enter the input file name: ")
@@ -21,7 +22,11 @@ if __name__ == "__main__":
 
     hash_doc_encrypted = hash.SHA256(in_filename.split(".")[-2]+".crypt")
 
-    print(ipfs.api.pin.ls(type='all'))
-
     encryption.decrypt_aes(AES_key, iv, in_filename)
+
+    l = ldap.initialize('ldap://localhost:1390')
+
+    ldap.add("ou=documents, dc=nodomain")
+
+
 

@@ -5,6 +5,8 @@ import ipfshttpclient
 class IPFS:
     def __init__(self, ip, port) -> None:
         self.api = self.connect(ip, port)
+        print(self.api.id())
+        print(self.api.bootstrap.list())
         
     def connect(self, ip=None, port=None):
         """if not ip:
