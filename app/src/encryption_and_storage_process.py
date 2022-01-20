@@ -8,7 +8,6 @@ from ldap3 import Server, Connection, ALL, SAFE_SYNC, ALL_ATTRIBUTES
 def encryptstore(x,y):
     uid = x
     in_filename = y
-
     iv = b'TestMeInitVector'
 
     filesize = os.path.getsize(in_filename)
@@ -20,7 +19,7 @@ def encryptstore(x,y):
     ipfsapi = ipfs.IPFS("127.0.0.1", "5001")
 
     CID = ipfsapi.addDoc(in_filename.split(".")[-2]+".crypt")
-    
+
     hash_doc_encrypted = hash.SHA256(in_filename.split(".")[-2]+".crypt").hexdigest()
 
     encryption.decrypt_aes(AES_key.digest(), iv, in_filename)
