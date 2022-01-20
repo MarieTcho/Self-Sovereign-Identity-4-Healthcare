@@ -38,21 +38,3 @@ def decrypt_aes(key, iv, in_filename):
             out_file.write(decryptor.decrypt(chunk))
             out_file.truncate(origsize)
     #print(in_filename.split(".")[-2]+'.crypt' + " has been decrypted. See " + in_filename.split(".")[-2]+'decrypted.'+in_filename.split(".")[-1])
-
-
-"""
-if __name__ == '__main__' : 
-    in_filename = input("Enter the input file name: ")
-    iv = b'TestMeInitVector'
-    filesize = os.path.getsize(in_filename)
-    
-    AES_key_hash = hash.SHA256(in_filename, bs)
-    print(AES_key_hash)
-
-    AES_key = hashSHA256(in_filename)
-        
-    encrypt_aes(AES_key, iv, in_filename, filesize)
-    
-    decrypt_aes(AES_key, iv, in_filename)
-"""
-    
