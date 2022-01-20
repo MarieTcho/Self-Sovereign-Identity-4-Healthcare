@@ -22,7 +22,7 @@ def encrypt_aes(key, iv, in_filename, filesize):
                 padding_length = (bs - len(chunk) % bs) or bs
                 chunk += str.encode(padding_length * chr(padding_length))
             out_file.write(cipher.encrypt(chunk))
-    print(in_filename + " has been encrypted. See " + in_filename.split(".")[-2] + '.crypt')
+    #print(in_filename + " has been encrypted. See " + in_filename.split(".")[-2] + '.crypt')
 
 
 def decrypt_aes(key, iv, in_filename):
@@ -37,7 +37,7 @@ def decrypt_aes(key, iv, in_filename):
                 break
             out_file.write(decryptor.decrypt(chunk))
             out_file.truncate(origsize)
-    print(in_filename.split(".")[-2]+'.crypt' + " has been decrypted. See " + in_filename.split(".")[-2]+'decrypted.'+in_filename.split(".")[-1])
+    #print(in_filename.split(".")[-2]+'.crypt' + " has been decrypted. See " + in_filename.split(".")[-2]+'decrypted.'+in_filename.split(".")[-1])
 
 
 """

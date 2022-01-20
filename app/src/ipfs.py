@@ -5,21 +5,14 @@ import ipfshttpclient
 class IPFS:
     def __init__(self, ip, port) -> None:
         self.api = self.connect(ip, port)
-        print(self.api.id())
-        print(self.api.bootstrap.list())
         
     def connect(self, ip=None, port=None):
-        """if not ip:
-            ip = "127.0.0.1"
-        if not port:
-            port = "5001"""
         api = ipfshttpclient.connect('/ip4/'+ip+'/tcp/'+port+'/http')
         return api
 
     def addDoc(self, doc):
-        res = self.api.add(doc)
-        print(res)
-        return res
+        res = self.api.add(doc)    
+        return res['Hash']
 
     def printDoc(self, hash):
         res = self.api.cat(hash)
