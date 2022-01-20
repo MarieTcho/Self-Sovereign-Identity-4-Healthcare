@@ -15,16 +15,15 @@ def encryptstore(x,y):
     
     AES_key = hash.SHA256(in_filename)
         
-    encryption.encrypt_aes(AES_key, iv, in_filename, filesize)
+    encryption.encrypt_aes(AES_key.digest(), iv, in_filename, filesize)
 
     ipfsapi = ipfs.IPFS("127.0.0.1", "5001")
 
-    #mettre dans ipfs le doc chiffré + calculer hash du doc chiffré
-
     CID = ipfsapi.addDoc(in_filename.split(".")[-2]+".crypt")
-    hash_doc_encrypted = hash.HSHA256(in_filename.split(".")[-2]+".crypt")
+    
+    hash_doc_encrypted = hash.SHA256(in_filename.split(".")[-2]+".crypt").hexdigest()
 
-    encryption.decrypt_aes(AES_key, iv, in_filename)
+    encryption.decrypt_aes(AES_key.digest(), iv, in_filename)
 
     server = Server('ldap://localhost:389', get_info=ALL)
 
