@@ -1,0 +1,14 @@
+wget https://dist.ipfs.io/go-ipfs/v0.11.0/go-ipfs_v0.8.0_linux-amd64.tar.gz
+
+tar -xvzf go-ipfs....tar.gz
+cd go-ipfs
+sudo bash install.sh
+
+ipfs init
+ipfs cat /ipfs/affiche
+
+pip install ipfshttpclient
+
+ipfs daemon
+
+
