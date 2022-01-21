@@ -1,5 +1,5 @@
 # Self-Sovereign Identity for Healthcare
-> Final project studies \\
+> Final project studies
 > Telecom SudParis
 
 ## Introduction

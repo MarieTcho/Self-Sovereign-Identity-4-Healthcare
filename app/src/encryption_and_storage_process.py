@@ -3,11 +3,19 @@ import hash
 import encryption
 import sys
 import ipfs
+from flask import Flask, request
 from ldap3 import Server, Connection, ALL, SAFE_SYNC, ALL_ATTRIBUTES
 
-def encryptstore(x,y):
-    uid = x
-    in_filename = y
+app = Flask(__name__)
+
+@app.route("/encryptstore", methods=['GET', 'POST'])
+def encryptstore():
+    if request.method == 'POST':
+        f = request.files['file']
+        f.save('./temp.bin') # DANGER !!!!!
+
+    uid = request.form['uid']
+    in_filename = os.path.realpath('./temp.bin')
     iv = b'TestMeInitVector'
 
     filesize = os.path.getsize(in_filename)
@@ -35,6 +43,4 @@ def encryptstore(x,y):
 
     # conn.add(f"documentIdentifier={hash_doc_encrypted},ou=documents,dc=nodomain", "document", {"documentAuthor": "uid="+uid+",ou=patients,dc=nodomain"}))
     # l.add_s("ou=documents, dc=nodomain", [("documentIdentifier", hash_doc_encrypted), ("documentAuthor", b"uid=0x9EdF6CCAFE620a14fB83531f5a6Fd3673F7BC39a,ou=patients,dc=nodomain")])
-
-
-encryptstore(sys.argv[1], sys.argv[2])
+    return "<html><head></head><body><p>Ca a marché</p></body>"

@@ -133,18 +133,16 @@
                             <div class="text-center">
                                     <h5>Add here to add a document<span id="recordsHash"></span></h5>
 
-                                    <form>
-                                        <label for="fname">Patient DID:</label><br>
-                                        <input type="text" id="pdid" name="fname"><br>
-                                      </form>
-
-                                    <label for="avatar"></label>
+                                    <form action="http://127.0.0.1:8081/encryptstore" enctype="multipart/form-data" method="POST">
+                                        <label for="uid">Patient DID:</label><br>
+                                        <input type="text" id="pdid" name="uid"><br>
+                                    <label for="file"></label>
                                         <input type="file"
-                                            id="doc" name="document"
+                                            id="file" name="file"
                                             accept="image/png, image/jpeg">
                                     
-                                    <button type="submit" class="btn btn-info btn-lg" onclick="myFunction()">Add document</button>
-
+                                    <button type="submit" class="btn btn-info btn-lg">Add document</button>
+                                    </form>
                                     <p id="demo"></p>
                                     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
                                     <script>
@@ -153,10 +151,10 @@
                                           var y = document.getElementById("doc").value;
                                           document.getElementById("demo").innerHTML = x;
                                           
-                                          $.ajax({
-                                            url: "encryption_and_storage_process.py",
+                                          $.post({
+                                            url: "http://127.0.0.1:8080/encryptsave",
                                             context: document.body,
-                                            data: { param: x,y}
+                                            data: { uid: x }
                                             }).done(function() {
                                             alert('finished python script');;
                                             });
