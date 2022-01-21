@@ -1,5 +1,6 @@
 # Self-Sovereign Identity for Healthcare
-
+> Final project studies 
+> Telecom SudParis
 
 ## Introduction
 
@@ -92,11 +93,11 @@ var agentContractAddress = '0xF216cf0009a6d3673e7Baa723e92831D921D01b8';
 
 ### Running the dApp
 
-#### 1. Connecting Metamask to our local blockchain
+#### 1. Connecting Metamask to your local blockchain
   - Connect metamask to localhost:8485
   - Click on import account
   ![alt text](https://github.com/MarieTcho/Self-Sovereign-Identity-4-Healthcare/blob/main/images/metamask_wallet.png?raw=true)
-  - Select any account from ganache and copy the private key to import account into metaMask
+  - Select any account from ganache and copy the private key to import account into MetaMask
   ![alt text](https://github.com/MarieTcho/Self-Sovereign-Identity-4-Healthcare/blob/main/images/ganache.png?raw=true)
 
 #### 2. Starting IPFS 
@@ -112,6 +113,7 @@ var agentContractAddress = '0xF216cf0009a6d3673e7Baa723e92831D921D01b8';
 
   - Install python packages `pip3 install pycryptodome ipfshttpclient ldap3`
   - Start IPFS Desktop Application
-  - Start Apache Directory Studio Application
-  - Run `python3 app/src/encryption_and_storage_process.py <Document name> <Patient DID>`
-
+  - Start Apache Directory Studio Application and launch a LDAP directory
+  - Run `python3 /YOUR_PROJECT_DIRECTORY/app/src/encryption_and_storage_process.py <Document name> <Patient DID>`
+  - Program returns patient DID, document encrypted, its hash and its IPFS CID
+  - You can check your document in `ipfs://<CID>` in your browser and in the LDAP server
