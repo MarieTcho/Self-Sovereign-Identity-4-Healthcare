@@ -84,7 +84,7 @@ The projects requires NodeJS and npm to work. Instructions to install all other 
 
 ```js
 // app/src/app.js  line number 11
-var agentContractAddress = '0x75E115394aacC7c6063E593B9292CB9417E4cbeC';
+var agentContractAddress = '0xF216cf0009a6d3673e7Baa723e92831D921D01b8';
 ```
 
 3. If you change contents of any contract , replace existing deployment using `truffle migrate --reset`
@@ -110,6 +110,7 @@ var agentContractAddress = '0x75E115394aacC7c6063E593B9292CB9417E4cbeC';
 
 ## Document hashing, encryption and storage process
 
+  - Install python packages `pip3 install pycryptodome ipfshttpclient`
   - Start IPFS Desktop Application
   - Start Apache Directory Studio Application
   - Run `python3 encryption_and_storage_process.py <Document name> <Patient DID>`
