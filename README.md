@@ -1,7 +1,9 @@
-# SwasthyaChain : Health Records Management Using Blockchain
+# Self-Sovereign Identity for Healthcare
 
 
 ## Introduction
+
+
 The aim of this framework is firstly to implement blockchain technology for EHR and secondly to provide secure storage of electronic records by defining granular access rules for the users of the proposed framework. Moreover, this framework also discusses the scalability problem faced by the blockchain technology in general via use of off-chain storage of the records. This framework provides the EHR system with the benefits of having a scalable, secure and integral blockchain-based solution.
 <!-- TABLE OF CONTENTS -->
 
@@ -14,6 +16,7 @@ The aim of this framework is firstly to implement blockchain technology for EHR 
 ## Installation
 
 The projects requires NodeJS and npm to work. Instructions to install all other dependencies are given below.
+
 ### Node modules
 
 1. Move to the project directory and open it in your terminal.
@@ -54,9 +57,9 @@ The projects requires NodeJS and npm to work. Instructions to install all other 
   - Fire up your terminal and run `ipfs init`
   - Then run 
     ```
-    ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin "['*']"
-    ipfs config --json API.HTTPHeaders.Access-Control-Allow-Credentials "['true']"
-    ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods "['PUT', 'POST', 'GET']"
+    ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin "[\"*\"]"
+    ipfs config --json API.HTTPHeaders.Access-Control-Allow-Credentials "[\"true\"]"
+    ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods "[\"PUT\", \"POST\", \"GET\"]"
     ```
 
     > Note: If you face any issues with the above command on windows, try using command prompt and escape sequences or git bash.
@@ -77,7 +80,7 @@ The projects requires NodeJS and npm to work. Instructions to install all other 
   
 1. Open new Terminal and deploy contracts using `truffle migrate`
 2. Copy deployed contract address to src/app.js 
-![alt text](https://raw.githubusercontent.com/SuyashMore/SwasthyaChain/master/images/ganace-contracct.png)
+![alt text](https://github.com/MarieTcho/Self-Sovereign-Identity-4-Healthcare/blob/main/images/ganache_smart-contract-deployed.png?raw=true)
 
 ```js
 // app/src/app.js  line number 11
@@ -104,3 +107,10 @@ var agentContractAddress = '0x75E115394aacC7c6063E593B9292CB9417E4cbeC';
   - Run `npm start`.
   - Open `localhost:3000` on your browser.
   - That's it! The dApp is up and running locally.
+
+## Document hashing, encryption and storage process
+
+  - Start IPFS Desktop Application
+  - Start Apache Directory Studio Application
+  - Run `python3 encryption_and_storage_process.py <Document name> <Patient DID>`
+  
