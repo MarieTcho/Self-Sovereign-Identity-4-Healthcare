@@ -1,7 +1,9 @@
 import ipfshttpclient
 
 class IPFS:
-    def __init__(self, ip, port) -> None:
+    def __init__(self, ip=None, port=None):
+        self.ip = ip
+        self.port = port
         self.api = self.connect(ip, port)
         
     def connect(self, ip=None, port=None):
