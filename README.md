@@ -11,7 +11,7 @@ The aim of this framework is firstly to implement blockchain technology for EHR 
 
 ## Application Demo Video  
 
-[![Demo]](https://youtu.be/hOjInRpDf34)
+[![Demo](https://github.com/MarieTcho/Self-Sovereign-Identity-4-Healthcare/blob/main/app/src/Hospital_chain_logo.png?raw=true)](https://youtu.be/hOjInRpDf34)
 
 
 ## Installation
